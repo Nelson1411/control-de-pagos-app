@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { appReducer } from "../reducer/appReducer";
-import { ACTIONSTYPE, GlobalStateContext, id, Transaction } from "../types";
+import { ACTIONSTYPE, GlobalStateContext, id, Transaction } from "../types.d.ts";
 
 export const GlobalContext = createContext<GlobalStateContext | null>(null)
 
