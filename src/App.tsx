@@ -1,33 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Balance from "./components/Balance"
+import ExpenseChart from "./components/ExpenseChart"
+import IncomeExpense from "./components/IncomeExpense"
+import TransactionForm from "./components/transactions/TransactionForm"
+import TransactionsList from "./components/transactions/TransactionsList"
+
+import { GlobalProvider } from "./context/globalState"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <GlobalProvider>
+        <main className="bg-[#0f172a] h-screen text-white flex 
+        justify-center items-center">
+          <div className="container mx-auto w-2/5">
+            <section className="bg-zinc-800 p-10 rounded-lg flex gap-x-2">
+              <section>
+                <h1 className="text-4xl font-bold"></h1>
+                <IncomeExpense />
+                <Balance />
+                <TransactionForm />
+              </section>
+              <div className="flex flex-col flex-1">
+                <ExpenseChart />
+                <TransactionsList />
+              </div>
+            </section>
+          </div>
+        </main>
+      </GlobalProvider>
     </>
   )
 }
