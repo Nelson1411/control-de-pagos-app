@@ -1,5 +1,5 @@
 import { VictoryPie, VictoryLabel } from 'victory'
-import { useGlobalState } from '../context/globalState'
+import { useGlobalState } from '../hooks/state'
 function ExpenseChart() {
 
     const { transactions } = useGlobalState()

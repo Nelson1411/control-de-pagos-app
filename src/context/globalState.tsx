@@ -1,22 +1,8 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { appReducer } from "../reducer/appReducer";
-import { ACTIONSTYPE, GlobalStateContext, id, Transaction } from "../types.d.ts";
+import { ACTIONSTYPE, GlobalStateContext, id, Transaction } from "../types";
 
 export const GlobalContext = createContext<GlobalStateContext | null>(null)
-
-export const useGlobalState = () => {
-    const context = useContext(GlobalContext)
-
-    if (!context) {
-        throw new Error('useGlobalState must be used within a GlobalProvider')
-    }
-
-    return context
-}
-
-const initialState = {
-    transactions: []
-}
 
 export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
     const [state, dispatch] = useReducer(appReducer, initialState,
@@ -52,4 +38,8 @@ export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
             {children}
         </GlobalContext.Provider>
     )
+}
+
+const initialState = {
+    transactions: []
 }

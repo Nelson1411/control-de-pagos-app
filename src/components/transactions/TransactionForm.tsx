@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useGlobalState } from "../../context/globalState"
+import { useGlobalState } from "../../hooks/state"
 
 function TransactionForm() {
   const [description, setDescription] = useState("")

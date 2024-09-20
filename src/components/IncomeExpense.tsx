@@ -1,4 +1,4 @@
-import { useGlobalState } from "../context/globalState"
+import { useGlobalState } from "../hooks/state"
 import { Transaction } from "../types"
 
 function IncomeExpense() {

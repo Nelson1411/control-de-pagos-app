@@ -1,4 +1,4 @@
-import { useGlobalState } from "../context/globalState"
+import { useGlobalState } from "../hooks/state"
 
 function Balance() {
   const { transactions } = useGlobalState()
