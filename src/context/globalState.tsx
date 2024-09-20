@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { appReducer } from "../reducer/appReducer";
-import { GlobalStateContext, id, Transaction } from "../types";
+import { ACTIONSTYPE, GlobalStateContext, id, Transaction } from "../types";
 
-export const GlobalContext = createContext<GlobalStateContext>()
+export const GlobalContext = createContext<GlobalStateContext | null>(null)
 
 export const useGlobalState = () => {
     const context = useContext(GlobalContext)
@@ -18,7 +18,7 @@ const initialState = {
     transactions: []
 }
 
-export const GlobalProvider = ({ children }) => {
+export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
     const [state, dispatch] = useReducer(appReducer, initialState,
         () => {
             const localData = localStorage.getItem('transactions')
@@ -31,14 +31,14 @@ export const GlobalProvider = ({ children }) => {
 
     const addTransaction = (transaction: Transaction) => {
         dispatch({
-            type: 'ADD_TRANSACTION',
+            type: ACTIONSTYPE.ADD_TRANSACTION,
             payload: transaction
         })
     }
 
     const deleteTransaction = (id: id) => {
         dispatch({
-            type: 'DELETE_TRANSACTION',
+            type: ACTIONSTYPE.DELETE_TRANSACTION,
             payload: id
         })
     }

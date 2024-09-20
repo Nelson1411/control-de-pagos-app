@@ -1,16 +1,15 @@
-import { Transaction } from "../types"
+import { Actions, ACTIONSTYPE, StateType, Transaction } from "../types"
 
-export const appReducer = (state, action) => {
+export const appReducer = (state: StateType, action: Actions) => {
 
     switch (action.type) {
-        case 'ADD_TRANSACTION':
+        case ACTIONSTYPE.ADD_TRANSACTION:
             return {
                 ...state,
                 transactions: [...state.transactions, action.payload]
             }
 
-        case 'DELETE_TRANSACTION':
-
+        case ACTIONSTYPE.DELETE_TRANSACTION:
             return {
                 ...state,
                 transactions: state.transactions.filter((transaction: Transaction) => transaction.id !== action.payload)
