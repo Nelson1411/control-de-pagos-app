@@ -7,12 +7,12 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
     const [formType, setFormType] = useState<'Gasto' | 'Ingreso'>('Gasto')
     const [category, setCategory] = useState<CategoryExpenseTypes | CategoryIncomeTypes>('Salud')
 
-    const categoryChange = (e: CategoryExpenseTypes | CategoryIncomeTypes) => {
-        setCategory(e)
+    const categoryChange = (category: CategoryExpenseTypes | CategoryIncomeTypes) => {
+        setCategory(category)
     }
 
-    const formTypeChange = (e: 'Gasto' | 'Ingreso') => {
-        setFormType(e as 'Gasto' | 'Ingreso')
+    const formTypeChange = (formType: 'Gasto' | 'Ingreso') => {
+        setFormType(formType as 'Gasto' | 'Ingreso')
     }
 
     useEffect(() => {

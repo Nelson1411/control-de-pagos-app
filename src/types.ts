@@ -53,6 +53,6 @@ export interface GlobalStateContext {
 export interface FormContextType {
     formType: 'Gasto' | 'Ingreso'
     category: CategoryExpenseTypes | CategoryIncomeTypes
-    formTypeChange: (e) => void
-    categoryChange: (e) => void
+    formTypeChange: (formType: 'Gasto' | 'Ingreso') => void
+    categoryChange: (category: CategoryExpenseTypes | CategoryIncomeTypes) => void
 }
