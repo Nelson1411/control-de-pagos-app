@@ -1,19 +1,17 @@
-import { useGlobalState } from '../../hooks/state'
+// import { useGlobalState } from '../../hooks/state'
 import { Transaction } from '../../types'
+import { TableCell, TableRow } from '../Tremor/Table'
 
 function TransactionItem({ transaction }: {
     transaction: Transaction,
 }) {
-    const { deleteTransaction } = useGlobalState()
+    // const { deleteTransaction } = useGlobalState()
   return (
-    <li className='bg-zinc-600 text-white px-3 py-1 rounded-lg
-    mb-2 w-full flex justify-between items-center'>
-        <p className='text-sm'>{transaction.description}</p>
-        <span>${transaction.amount}</span>
-        <button onClick={() => deleteTransaction(transaction.id)}>
-            x
-        </button>
-    </li>
+    <TableRow>
+      <TableCell>{transaction.description}</TableCell>
+      <TableCell>{transaction.amount}</TableCell>
+      <TableCell>{transaction.category}</TableCell>
+    </TableRow>
   )
 }
 

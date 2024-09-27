@@ -1,5 +1,6 @@
-import { VictoryPie, VictoryLabel } from 'victory'
 import { useGlobalState } from '../hooks/state'
+import { DonutChart } from "./Tremor/DonusChart"
+
 function ExpenseChart() {
 
     const { transactions } = useGlobalState()
@@ -12,37 +13,42 @@ function ExpenseChart() {
                         .filter(transaction => transaction.amount < 0)
                         .reduce((acc, transaction) => (acc += transaction.amount), 0) * -1
 
-    const totalExpensePercentage = (Math.abs(totalExpense) / (totalIncome + totalExpense)) * 100
+    const total = transactions
+                  .map(transaction => transaction.amount)
+                  .reduce((acc, item) => (acc += item), 0)
+                  .toFixed(2)
 
-    const totalIncomePercentage = 100 - totalExpensePercentage
-
-    
     const data = [
-        { x: "Income", y: totalIncomePercentage },
-        { x: "Expense", y: totalExpensePercentage },
+      {
+        name: 'gasto',
+        amount: totalExpense
+      },
+      {
+        name: 'ingresos',
+        amount: totalIncome
+      }
     ]
-    
-    
-    return (
+
+  return (
     <>
-        {
-            transactions.length > 0 ? (
-                <VictoryPie
-                    colorScale={["#2ecc71", "#e74c3c"]}
-                    data={data}
-                    labels={({datum}) => `${datum.y.toFixed(2)}%`}
-                    animate={{ duration: 2000 }}
-                    labelComponent={<VictoryLabel
-                        angle={45}
-                        style={{ fill: "white", fontSize: 50 }}
-                    />}
-                />
-            ) : (
-                <h1>No hay transacciones</h1>
-            )
-        }
+      <p className="text-center text-sm text-gray-700 dark:text-gray-300">
+        Total
+      </p>
+      <p className="mt-2 w-full text-center text-xl font-semibold text-gray-900 dark:text-gray-50">
+        {total}
+      </p>
+      <DonutChart
+        data={data}
+        category="name"
+        value="amount"
+        className="mx-auto mt-8"
+        colors={["blue", "violet", "cyan", "emerald"]}
+      />
     </>
   )
 }
 
 export default ExpenseChart
+
+
+
