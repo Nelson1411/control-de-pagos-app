@@ -1,7 +1,7 @@
-import { useGlobalState } from "../hooks/state"
+import { useStoreContext } from "../hooks/Store"
 
 function Balance() {
-  const { transactions } = useGlobalState()
+  const { transactions } = useStoreContext()
 
   const amounts = transactions.map(transaction => transaction.amount)
   const total = amounts

@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { CategoryExpense, CategoryExpenseTypes, CategoryIncome, CategoryIncomeTypes, FormContextType } from "../types";
 
 export const FormContext = createContext<FormContextType | null>(null)
@@ -6,6 +6,16 @@ export const FormContext = createContext<FormContextType | null>(null)
 export const FormProvider = ({ children }: { children: React.ReactNode }) => {
     const [formType, setFormType] = useState<'Gasto' | 'Ingreso'>('Gasto')
     const [category, setCategory] = useState<CategoryExpenseTypes | CategoryIncomeTypes>('Salud')
+    const [title, setTitle] = useState("")
+    const [amount, setAmount] = useState("")
+
+    const titleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.target.value)
+    }
+
+    const amountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setAmount(e.target.value)
+    }
 
     const categoryChange = (category: CategoryExpenseTypes | CategoryIncomeTypes) => {
         setCategory(category)
@@ -23,8 +33,12 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
         <FormContext.Provider value={{
             category,
             formType,
+            title,
+            amount,
             formTypeChange,
-            categoryChange
+            categoryChange,
+            titleChange,
+            amountChange
         }}>
             {children}
         </FormContext.Provider>

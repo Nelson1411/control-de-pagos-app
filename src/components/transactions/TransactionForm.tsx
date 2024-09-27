@@ -1,27 +1,17 @@
-import { useState } from "react"
-import { useGlobalState } from "../../hooks/state"
 import SelectCategory from "../SelectCategory"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../Tremor/Tabs"
 import { Categorys } from "../../data/category"
 import { useFormContext } from "../../hooks/form"
+import { InputLabel } from "../InputLabel"
+import { useStoreContext } from "../../hooks/Store"
+import { InputNumber } from "../InputNumber"
 
 function TransactionForm() {
-  const [description, setDescription] = useState("")
-  const [amount, setAmount] = useState("")
-  const { addTransaction } = useGlobalState()
-  const { category, formTypeChange, formType } = useFormContext()
+  const { formTypeChange, formType } = useFormContext()
+  const { onSubmit } = useStoreContext()
 
-  const onSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault()
-    addTransaction({
-      id: window.crypto.randomUUID(),
-      description,
-      amount: formType === 'Gasto' ? Number(-amount) : +amount,
-      category: category
-    })
-    console.log(description, amount, category);
-    setAmount('')
-    setDescription('')
+  const onSubmitHandler = (e: React.SyntheticEvent) => {
+    onSubmit(e)
   }
 
   return (
@@ -35,8 +25,11 @@ function TransactionForm() {
           <TabsTrigger value="Gasto">Gasto</TabsTrigger>
           <TabsTrigger value="Ingreso">Ingreso</TabsTrigger>
         </TabsList>
-      <form onSubmit={onSubmit}>
-        <input
+      <form onSubmit={e => onSubmitHandler(e)}>
+
+        <InputLabel label="Titulo" />
+        <InputNumber label="Monto" />
+        {/* <input
           type="text"
           placeholder="Enter a description"
           onChange={(e) => setDescription(e.target.value)}
@@ -51,7 +44,7 @@ function TransactionForm() {
           onChange={(e) => setAmount(e.target.value)}
           value={amount}
           className="bg-zinc-600 text-white px-3 py-2 rounded-lg block mb-2 w-full"
-        />
+        /> */}
 
         <div className="ml-2 mt-4">
           <TabsContent

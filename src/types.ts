@@ -1,3 +1,5 @@
+import React from "react"
+
 export type id = `${string}-${string}-${string}-${string}-${string}`
 export interface Transaction {
     description: string,
@@ -44,15 +46,19 @@ export interface Actions {
     deleteTransaction: (id: id) => void
 }
 
-export interface GlobalStateContext {
+export interface StoreContextType {
     transactions: Transaction[],
-    addTransaction: (transaction: Transaction) => void
+    onSubmit: (e: React.SyntheticEvent) => void
     deleteTransaction: (id: id) => void
 }
 
 export interface FormContextType {
     formType: 'Gasto' | 'Ingreso'
-    category: CategoryExpenseTypes | CategoryIncomeTypes
+    category: CategoryExpenseTypes | CategoryIncomeTypes,
+    title: string,
+    amount: string,
     formTypeChange: (formType: 'Gasto' | 'Ingreso') => void
     categoryChange: (category: CategoryExpenseTypes | CategoryIncomeTypes) => void
+    titleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    amountChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }

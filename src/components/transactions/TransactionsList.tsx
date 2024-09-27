@@ -1,4 +1,4 @@
-import { useGlobalState } from "../../hooks/state"
+import { useStoreContext } from "../../hooks/Store"
 import { Transaction } from "../../types"
 import TransactionItem from "./TransactionItem"
 import {
@@ -12,34 +12,24 @@ import {
   } from "../Tremor/Table"
 
 function TransactionsList() {
-    const { transactions  } = useGlobalState()
+    const { transactions  } = useStoreContext()
   return (
     <>
         <TableRoot>
             <Table>
-                <TableCaption>Recent invoices.</TableCaption>
-                <TableHead>
+                <TableCaption>ultimas transacciones</TableCaption>
+                <TableHead className="block">
                     <TableRow>
                         <TableHeaderCell>Titulo</TableHeaderCell>
                         <TableHeaderCell>Monto ($)</TableHeaderCell>
-                        <TableHeaderCell>categoria</TableHeaderCell>
+                        <TableHeaderCell>Categoria</TableHeaderCell>
                     </TableRow>
                 </TableHead>
-                <TableBody>
+                <TableBody className="overflow-y-scroll block h-48">
                     {transactions.map((item: Transaction) => (
                         <TransactionItem transaction={item} key={item.id} />
                     ))}
                 </TableBody>
-                {/* <TableFoot>
-                    <TableRow>
-                        <TableHeaderCell colSpan={1} scope="row" className="text-center">
-                        4,642
-                        </TableHeaderCell>
-                        <TableHeaderCell colSpan={2} scope="row" className="text-center">
-                        497
-                        </TableHeaderCell>
-                    </TableRow>
-                </TableFoot> */}
             </Table>
         </TableRoot>
     </>

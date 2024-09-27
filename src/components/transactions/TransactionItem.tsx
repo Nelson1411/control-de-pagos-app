@@ -7,7 +7,7 @@ function TransactionItem({ transaction }: {
 }) {
     // const { deleteTransaction } = useGlobalState()
   return (
-    <TableRow>
+    <TableRow className='flex justify-between'>
       <TableCell>{transaction.description}</TableCell>
       <TableCell>{transaction.amount}</TableCell>
       <TableCell>{transaction.category}</TableCell>

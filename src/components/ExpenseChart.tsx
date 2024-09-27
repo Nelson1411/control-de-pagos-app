@@ -1,9 +1,9 @@
-import { useGlobalState } from '../hooks/state'
+import { useStoreContext } from '../hooks/Store'
 import { DonutChart } from "./Tremor/DonusChart"
 
 function ExpenseChart() {
 
-    const { transactions } = useGlobalState()
+    const { transactions } = useStoreContext()
 
     const totalIncome = transactions
                         .filter(transaction => transaction.amount > 0)

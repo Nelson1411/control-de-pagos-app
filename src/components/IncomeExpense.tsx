@@ -1,8 +1,8 @@
-import { useGlobalState } from "../hooks/state"
+import { useStoreContext } from "../hooks/Store"
 import { Transaction } from "../types"
 
 function IncomeExpense() {
-  const { transactions } = useGlobalState()
+  const { transactions } = useStoreContext()
 
   const amounts = transactions.map((transaction: Transaction) => transaction.amount)
   
