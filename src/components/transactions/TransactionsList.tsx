@@ -5,8 +5,6 @@ import {
     Table,
     TableBody,
     TableCaption,
-    TableCell,
-    TableFoot,
     TableHead,
     TableHeaderCell,
     TableRoot,
