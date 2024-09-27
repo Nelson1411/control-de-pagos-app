@@ -26,7 +26,11 @@ function TransactionForm() {
 
   return (
     <>
-      <Tabs defaultValue="Gasto" value={formType} onValueChange={formTypeChange}>
+      <Tabs
+        defaultValue="Gasto"
+        value={formType}
+        onValueChange={(v) => formTypeChange(v as 'Gasto' | 'Ingreso')}
+      >
         <TabsList>
           <TabsTrigger value="Gasto">Gasto</TabsTrigger>
           <TabsTrigger value="Ingreso">Ingreso</TabsTrigger>

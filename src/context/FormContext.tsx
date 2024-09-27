@@ -12,7 +12,7 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     const formTypeChange = (formType: 'Gasto' | 'Ingreso') => {
-        setFormType(formType as 'Gasto' | 'Ingreso')
+        setFormType(formType)
     }
 
     useEffect(() => {
