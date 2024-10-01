@@ -1,4 +1,4 @@
-import { useStoreContext } from "../../hooks/Store"
+import { useStoreContext } from "../../hooks/StoreHook"
 import { Transaction } from "../../types"
 import TransactionItem from "./TransactionItem"
 import {
@@ -18,14 +18,16 @@ function TransactionsList() {
         <TableRoot>
             <Table>
                 <TableCaption>ultimas transacciones</TableCaption>
-                <TableHead className="block">
+                <TableHead>
                     <TableRow>
                         <TableHeaderCell>Titulo</TableHeaderCell>
                         <TableHeaderCell>Monto ($)</TableHeaderCell>
                         <TableHeaderCell>Categoria</TableHeaderCell>
+                        <TableHeaderCell>Tipo</TableHeaderCell>
+                        <TableHeaderCell>Fecha</TableHeaderCell>
                     </TableRow>
                 </TableHead>
-                <TableBody className="overflow-y-scroll block h-48">
+                <TableBody>
                     {transactions.map((item: Transaction) => (
                         <TransactionItem transaction={item} key={item.id} />
                     ))}

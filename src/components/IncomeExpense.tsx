@@ -1,4 +1,4 @@
-import { useStoreContext } from "../hooks/Store"
+import { useStoreContext } from "../hooks/StoreHook"
 import { Transaction } from "../types"
 
 function IncomeExpense() {

@@ -9,6 +9,18 @@ export const chartColors = {
     fill: "fill-blue-500",
     text: "text-blue-500",
   },
+  red: {
+    bg: "bg-red-500",
+    stroke: "stroke-red-500",
+    fill: "fill-red-500",
+    text: "text-red-500",
+  },
+  green: {
+    bg: "bg-green-500",
+    stroke: "stroke-green-500",
+    fill: "fill-green-500",
+    text: "text-green-500",
+  },
   emerald: {
     bg: "bg-emerald-500",
     stroke: "stroke-emerald-500",
@@ -91,4 +103,14 @@ export const getColorClassName = (
     text: "text-gray-500",
   }
   return chartColors[color]?.[type] ?? fallbackColor[type]
+}
+
+export const getYAxisDomain = (
+  autoMinValue: boolean,
+  minValue: number | undefined,
+  maxValue: number | undefined,
+) => {
+  const minDomain = autoMinValue ? "auto" : minValue ?? 0
+  const maxDomain = maxValue ?? "auto"
+  return [minDomain, maxDomain]
 }

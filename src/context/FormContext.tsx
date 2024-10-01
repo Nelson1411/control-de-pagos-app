@@ -1,5 +1,11 @@
-import React, { createContext, useEffect, useState } from "react";
-import { CategoryExpense, CategoryExpenseTypes, CategoryIncome, CategoryIncomeTypes, FormContextType } from "../types";
+import { createContext, useEffect, useState } from "react";
+import {
+    CategoryExpense,
+    CategoryExpenseTypes,
+    CategoryIncome,
+    CategoryIncomeTypes,
+    FormContextType
+} from "../types";
 
 export const FormContext = createContext<FormContextType | null>(null)
 
@@ -25,6 +31,11 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
         setFormType(formType)
     }
 
+    const clearForm = () => {
+        setTitle("")
+        setAmount("")
+    }
+
     useEffect(() => {
         setCategory(formType === 'Gasto' ? CategoryExpense.SALUD : CategoryIncome.SALARIO)
     }, [formType])
@@ -38,7 +49,8 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
             formTypeChange,
             categoryChange,
             titleChange,
-            amountChange
+            amountChange,
+            clearForm
         }}>
             {children}
         </FormContext.Provider>

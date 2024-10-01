@@ -1,5 +1,6 @@
-import { useFormContext } from "../hooks/form"
+import { useFormContext } from "../hooks/formHook"
 import { CategoryExpenseTypes, CategoryIncomeTypes } from "../types"
+import { Label } from "./Tremor/Label"
 import {
     Select,
     SelectContent,
@@ -8,18 +9,23 @@ import {
     SelectValue,
   } from "./Tremor/Select"
 
-function SelectCategory({ categorys }: { categorys: CategoryExpenseTypes[] | CategoryIncomeTypes[] }) {
+function SelectCategory({ categorys, label }: {
+  categorys: CategoryExpenseTypes[] | CategoryIncomeTypes[]
+  label: string
+}) {
   const { categoryChange, category } = useFormContext()
 
   return (
     <>
+      <Label htmlFor="category">{ label }</Label>
       <Select
         defaultValue={category}
         value={category}
         onValueChange={categoryChange}
+        name="category"
       >
-        <SelectTrigger className="mx-auto">
-          <SelectValue placeholder="Select" />
+        <SelectTrigger id="category" className="mx-auto">
+          <SelectValue placeholder="Seleccione una categoría" />
         </SelectTrigger>
         <SelectContent>
           {

@@ -1,4 +1,4 @@
-import { useStoreContext } from "../hooks/Store"
+import { useStoreContext } from "../hooks/StoreHook"
 
 function Balance() {
   const { transactions } = useStoreContext()

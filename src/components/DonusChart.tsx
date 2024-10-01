@@ -1,5 +1,5 @@
-import { useStoreContext } from '../hooks/Store'
-import { DonutChart } from "./Tremor/DonusChart"
+import { useStoreContext } from '../hooks/StoreHook'
+import { DonutChart } from "./Tremor/DonusChartTremor"
 
 function ExpenseChart() {
 
@@ -20,11 +20,11 @@ function ExpenseChart() {
 
     const data = [
       {
-        name: 'gasto',
+        name: 'Gastos',
         amount: totalExpense
       },
       {
-        name: 'ingresos',
+        name: 'Ingresos',
         amount: totalIncome
       }
     ]
@@ -41,8 +41,8 @@ function ExpenseChart() {
         data={data}
         category="name"
         value="amount"
-        className="mx-auto mt-8"
-        colors={["blue", "violet", "cyan", "emerald"]}
+        className="mx-auto mt-8 w-full h-52"
+        colors={["red", "green"]}
       />
     </>
   )

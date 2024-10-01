@@ -6,6 +6,7 @@ export interface Transaction {
     amount: number,
     id: id,
     category: CategoryExpenseTypes | CategoryIncomeTypes
+    date: Date
 }
 
 export enum CategoryExpense {
@@ -61,4 +62,5 @@ export interface FormContextType {
     categoryChange: (category: CategoryExpenseTypes | CategoryIncomeTypes) => void
     titleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
     amountChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    clearForm: () => void
 }
