@@ -1,8 +1,6 @@
 import ExpenseChart from "../components/DonusChart";
 import { Card } from "../components/Tremor/Card";
 
-import React from 'react'
-
 function Graficas() {
   return (
     <section className="h-full w-full text-white flex 
