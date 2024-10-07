@@ -1,4 +1,4 @@
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useStore } from "../store/store";
 import { id, StoreContextType, Transaction } from "../types";
 import { useFormContext } from "../hooks/formHook";
@@ -8,6 +8,7 @@ export const StoreContext = createContext<StoreContextType | null>(null)
 export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
         const state = useStore((state) => state.transactions)
         const { formType, category, amount, title, clearForm } = useFormContext()
+        const [date] = useState(new Date())
 
         useEffect(() => {
             window.addEventListener('storage', async () => {
@@ -24,15 +25,14 @@ export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
 
     }
 
-    const onSubmit = (e: React.SyntheticEvent) => {
-        e.preventDefault()
+    const onSubmit = () => {
         try {
             addTransaction({
                 id: window.crypto.randomUUID(),
                 description: title,
                 amount: formType === 'Gasto' ? Number(-amount) : +amount,
                 category: category,
-                date: new Date()
+                date: date,
             })
         } catch (error) {
             console.error(error)

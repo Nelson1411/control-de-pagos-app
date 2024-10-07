@@ -15,7 +15,7 @@ function TransactionsList() {
     const { transactions  } = useStoreContext()
   return (
     <>
-        <TableRoot>
+        <TableRoot className="h-full">
             <Table>
                 <TableCaption>ultimas transacciones</TableCaption>
                 <TableHead>
@@ -25,6 +25,7 @@ function TransactionsList() {
                         <TableHeaderCell>Categoria</TableHeaderCell>
                         <TableHeaderCell>Tipo</TableHeaderCell>
                         <TableHeaderCell>Fecha</TableHeaderCell>
+                        <TableHeaderCell>Acciones</TableHeaderCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

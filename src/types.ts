@@ -49,7 +49,7 @@ export interface Actions {
 
 export interface StoreContextType {
     transactions: Transaction[],
-    onSubmit: (e: React.SyntheticEvent) => void
+    onSubmit: () => void
     deleteTransaction: (id: id) => void
 }
 

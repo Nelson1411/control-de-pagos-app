@@ -22,6 +22,7 @@ function TransactionItem({ transaction }: {
         }
       </TableCell>
       <TableCell>{formatDate}</TableCell>
+      <TableCell>Acciones</TableCell>
     </TableRow>
   )
 }

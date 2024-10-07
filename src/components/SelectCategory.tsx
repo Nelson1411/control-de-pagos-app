@@ -9,9 +9,10 @@ import {
     SelectValue,
   } from "./Tremor/Select"
 
-function SelectCategory({ categorys, label }: {
+function SelectCategory({ categorys, label, className }: {
   categorys: CategoryExpenseTypes[] | CategoryIncomeTypes[]
-  label: string
+  label: string,
+  className?: string
 }) {
   const { categoryChange, category } = useFormContext()
 
@@ -24,8 +25,13 @@ function SelectCategory({ categorys, label }: {
         onValueChange={categoryChange}
         name="category"
       >
-        <SelectTrigger id="category" className="mx-auto">
-          <SelectValue placeholder="Seleccione una categoría" />
+        <SelectTrigger
+          id="category"
+          className={className}
+        >
+          <SelectValue
+            placeholder="Seleccione una categoría"
+          />
         </SelectTrigger>
         <SelectContent>
           {
