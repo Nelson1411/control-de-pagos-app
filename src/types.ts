@@ -51,6 +51,9 @@ export interface StoreContextType {
     transactions: Transaction[],
     onSubmit: () => void
     deleteTransaction: (id: id) => void
+    balance: string
+    expense: string
+    income: string
 }
 
 export interface FormContextType {

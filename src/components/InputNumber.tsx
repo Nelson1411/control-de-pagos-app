@@ -13,12 +13,11 @@ export const InputNumber = ({ label, className }: {
       <Input
         value={amount}
         onChange={(e) => amountChange(e)}
-        inputClassName={className}
         placeholder="00.00"
         id="amount"
         name="amount"
         type="number"
-        className="mt-2"
+        className={className}
       />
     </div>
   )

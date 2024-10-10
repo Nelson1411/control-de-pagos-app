@@ -2,6 +2,8 @@ import { createContext, useEffect, useState } from "react";
 import { useStore } from "../store/store";
 import { id, StoreContextType, Transaction } from "../types";
 import { useFormContext } from "../hooks/formHook";
+import { toast } from 'sonner'
+
 
 export const StoreContext = createContext<StoreContextType | null>(null)
 
@@ -10,6 +12,19 @@ export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
         const { formType, category, amount, title, clearForm } = useFormContext()
         const [date] = useState(new Date())
 
+        const balance = state.map(transaction => transaction.amount)
+                        .reduce((acc, item) => (acc += item), 0)
+                        .toFixed(2)
+
+        const expense = state.map(transaction => transaction.amount)
+                        .filter(item => item < 0)
+                        .reduce((acc, item) => (acc += item), 0)
+                        .toFixed(2)
+
+        const income = state.map(transaction => transaction.amount)
+                        .filter(item => item > 0)
+                        .reduce((acc, item) => (acc += item), 0)
+                        .toFixed(2)
         useEffect(() => {
             window.addEventListener('storage', async () => {
                 await useStore.persist.rehydrate()
@@ -26,6 +41,11 @@ export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     const onSubmit = () => {
+        console.log(title, amount, category)
+        if (amount === '' || title === '') {
+            toast.error('Campos requeridos no llenados')
+            return
+        }
         try {
             addTransaction({
                 id: window.crypto.randomUUID(),
@@ -37,12 +57,16 @@ export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
         } catch (error) {
             console.error(error)
         }
+        toast.success('Transacción guardada')
         clearForm()
     }
 
     return (
         <StoreContext.Provider value={{
             transactions: state,
+            balance,
+            expense,
+            income,
             onSubmit,
             deleteTransaction,
 

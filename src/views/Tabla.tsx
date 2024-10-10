@@ -1,3 +1,4 @@
+import { Toaster } from "sonner"
 import TransactionForm from "../components/transactions/TransactionForm"
 import TransactionsList from "../components/transactions/TransactionsList"
 
@@ -9,7 +10,7 @@ function Tabla() {
           <TransactionForm />
         </div>
         <TransactionsList />
-        
+        <Toaster richColors />
     </section>
   )
 }

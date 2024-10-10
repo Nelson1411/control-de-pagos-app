@@ -24,6 +24,7 @@ function SelectCategory({ categorys, label, className }: {
         value={category}
         onValueChange={categoryChange}
         name="category"
+        required
       >
         <SelectTrigger
           id="category"

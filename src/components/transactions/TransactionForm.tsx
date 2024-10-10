@@ -54,8 +54,8 @@ function TransactionForm() {
                   <TabsTrigger value="Ingreso">Ingreso</TabsTrigger>
                 </TabsList>
 
-                <InputLabel className="w-72" label="Titulo" />
-                <InputNumber className="w-72" label="Monto" />
+                <InputLabel className="w-72 mt-2 mb-4" label="Titulo" />
+                <InputNumber className="w-72 mt-2 mb-4" label="Monto" />
 
                 <TabsContent
                   value={formType}
