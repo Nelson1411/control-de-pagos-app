@@ -27,11 +27,13 @@ function BarChart() {
         })
         i++
     }
-    data.sort((a, b) => a.date.localeCompare(b.date))
+    data.sort((a, b) => a.date.localeCompare(b.date, undefined, { numeric: true }))
 
   return (
     <>
-        <p>Grafíca de gastos</p>
+        <h1 className="text-xl text-gray-700 dark:text-gray-300">
+            Grafíca de gastos
+        </h1>
         <BarChartTremor
             data={data}
             index="date"

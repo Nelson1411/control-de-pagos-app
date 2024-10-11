@@ -1,8 +1,4 @@
-"use client"
-
-import React from "react"
-
-import { LineChart, TooltipProps } from "../Tremor/LineChartTremor"
+import { LineChart } from "../Tremor/LineChartTremor"
 import { format, weekStart } from "@formkit/tempo"
 import { Transaction } from "../../types"
 import { useStoreContext } from "../../hooks/StoreHook"
@@ -24,29 +20,13 @@ function LineChartBalance() {
           })
           i++
       }
-  data.sort((a, b) => a.date.localeCompare(b.date))
-
-  const [datas, setDatas] = React.useState<TooltipProps | null>(null)
-  const currencyFormatter = (number: number) =>
-    `$${Intl.NumberFormat("us").format(number)}`
-
-  const payload = datas?.payload?.[0]
-  console.log(datas)
-  const value = payload?.value
-  if (value === undefined) return null
-
-  const formattedValue = payload
-    ? currencyFormatter(value)
-    : currencyFormatter(data[data.length - 1].Balance)
+  data.sort((a, b) => a.date.localeCompare(b.date, undefined, { numeric: true }))
 
   return (
     <div>
-      <p className="text-sm text-gray-700 dark:text-gray-300">
+      <h1 className="text-xl text-gray-700 dark:text-gray-300">
         Balance por día
-      </p>
-      <p className="mt-2 text-xl font-semibold text-gray-900 dark:text-gray-50">
-        {formattedValue}
-      </p>
+      </h1>
 
       <LineChart
         data={data}
@@ -56,17 +36,6 @@ function LineChartBalance() {
         showYAxis={false}
         startEndOnly={true}
         className="-mb-2 mt-8 h-48"
-        tooltipCallback={(props) => {
-          if (props.active) {
-            setDatas((prev) => {
-              if (prev?.label === props.label) return prev
-              return props
-            })
-          } else {
-            setDatas(null)
-          }
-          return null
-        }}
       />
     </div>
   )

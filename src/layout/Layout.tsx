@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'wouter'
 import { Drawer, DrawerBody, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '../components/Tremor/Drawer'
 import { Button } from '../components/Tremor/Button'
+import { RiBarChartGroupedLine, RiWallet2Line } from '@remixicon/react'
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,8 +10,14 @@ function Layout({ children }: { children: React.ReactNode }) {
         <nav className='hidden lg:col-start-1 lg:col-end-2 lg:flex lg:flex-col gap-4 
                 p-4 border-r border-gray-700'>
             <Link to={'/'}>Principal</Link>
-            <Link to={'/graficas'}>Graficas</Link>
-            <Link to={'/transacciones'}>Transacciones</Link>
+            <div className='flex gap-1 items-center'>
+              <RiBarChartGroupedLine  />
+              <Link to={'/graficas'}>Graficas</Link>
+            </div>
+            <div className='flex gap-1 items-center'>
+              <RiWallet2Line />
+              <Link to={'/transacciones'}>Transacciones</Link>
+            </div>
         </nav>
         
         <header className='lg:hidden flex justify-end'>
