@@ -67,3 +67,14 @@ export interface FormContextType {
     amountChange: (e: React.ChangeEvent<HTMLInputElement>) => void
     clearForm: () => void
 }
+
+export interface siteConfig {
+    name: string
+    url: string
+    description: string
+    baseLinks: {
+        principal: string
+        graficas: string
+        transacciones: string
+      }
+}

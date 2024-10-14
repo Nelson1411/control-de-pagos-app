@@ -27,7 +27,7 @@ function TransactionForm() {
     <section className="h-full">
       <Drawer>
         <DrawerTrigger asChild>
-          <Button variant="secondary">Añadir transacción</Button>
+          <Button variant='primary'>Añadir transacción</Button>
         </DrawerTrigger>
         <DrawerContent className="sm:max-w-lg flex">
           <DrawerHeader>

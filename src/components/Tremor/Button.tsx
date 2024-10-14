@@ -24,9 +24,9 @@ const buttonVariants = tv({
         // text color
         "text-white dark:text-white",
         // background color
-        "bg-blue-500 dark:bg-blue-500",
+        "bg-[#7f5af0] dark:bg-[#7f5af0]",
         // hover color
-        "hover:bg-blue-600 dark:hover:bg-blue-600",
+        "hover:bg-[#7f5af0]/80 dark:hover:bg-[#7f5af0]/80",
         // disabled
         "disabled:bg-blue-300 disabled:text-white",
         "disabled:dark:bg-blue-800 disabled:dark:text-blue-400",
@@ -37,9 +37,9 @@ const buttonVariants = tv({
         // text color
         "text-gray-900 dark:text-gray-50",
         // background color
-        "bg-white dark:bg-gray-950",
+        "bg-white dark:bg-[#72757e]",
         //hover color
-        "hover:bg-gray-50 dark:hover:bg-gray-900/60",
+        "hover:bg-gray-50 dark:hover:bg-[#72757e]/80",
         // disabled
         "disabled:text-gray-400",
         "disabled:dark:text-gray-600",

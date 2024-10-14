@@ -31,12 +31,12 @@ const selectTriggerStyles = [
     // placeholder
     "data-[placeholder]:text-gray-500 data-[placeholder]:dark:text-gray-500",
     // background color
-    "bg-white dark:bg-gray-950",
+    "bg-white dark:bg-[#16161a]",
     // hover
-    "hover:bg-gray-50 hover:dark:bg-gray-950/50",
+    "hover:bg-gray-50 hover:dark:bg-[#7f5af0]",
     // disabled
     "data-[disabled]:bg-gray-100 data-[disabled]:text-gray-400",
-    "data-[disabled]:dark:border-gray-700 data-[disabled]:dark:bg-gray-800 data-[disabled]:dark:text-gray-500",
+    "data-[disabled]:dark:border-gray-700 data-[disabled]:dark:bg-[#16161a] data-[disabled]:dark:text-gray-500",
     focusInput,
     // invalid (optional)
     // "aria-[invalid=true]:dark:ring-red-400/20 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-red-200 aria-[invalid=true]:border-red-500 invalid:ring-2 invalid:ring-red-200 invalid:border-red-500"
@@ -140,9 +140,9 @@ const SelectContent = React.forwardRef<
           // heights
           "max-h-[--radix-select-content-available-height]",
           // background color
-          "bg-white dark:bg-gray-950",
+          "bg-white dark:bg-[#16161a]",
           // text color
-          "text-gray-900 dark:text-gray-50",
+          "text-gray-900 dark:text-[#94a1b2]",
           // border color
           "border-gray-200 dark:border-gray-800",
           // transition
@@ -211,7 +211,7 @@ const SelectItem = React.forwardRef<
         // focus
         "focus-visible:bg-gray-100 focus-visible:dark:bg-gray-900",
         // hover
-        "hover:bg-gray-100 hover:dark:bg-gray-900",
+        "hover:bg-gray-100 hover:dark:bg-[#7f5af0]",
         className,
       )}
       {...props}
