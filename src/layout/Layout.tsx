@@ -50,7 +50,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                     isActive(item.href)
                       ? 'dark:text-[#7f5af0]'
                       : 'dark:text-[#fffffe]',
-                      'font-title font-bold text-sm'
+                      'font-title font-bold text-sm md:text-lg'
                   )
                 }
                   to={item.href}
@@ -113,7 +113,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           </Drawer>
         </header>
 
-        <section className='md:pl-52'>
+        <section className='md:pl-60'>
             {children}
         </section>
     </main>

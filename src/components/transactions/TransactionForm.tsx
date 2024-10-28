@@ -84,7 +84,7 @@ function TransactionForm() {
                 </Button>
               </DrawerClose>
               <DrawerClose asChild>
-                <Button type="submit" className="w-full sm:w-fit">OK</Button>
+                <Button type="submit" className="w-full mx-auto sm:w-fit">OK</Button>
               </DrawerClose>
             </DrawerFooter>
           </form>
