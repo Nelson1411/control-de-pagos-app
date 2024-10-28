@@ -3,10 +3,14 @@ import { Transaction } from '../../types'
 import { Badge } from '../Tremor/Badge'
 import { TableCell, TableRow } from '../Tremor/Table'
 import { format } from "@formkit/tempo"
+import TransactionUpdateForm from './UpdateTransactionForm'
+import { Button } from '../Tremor/Button'
+import { useStoreContext } from '../../hooks/StoreHook'
 
 function TransactionItem({ transaction }: {
     transaction: Transaction,
 }) {
+  const { deleteTransaction } = useStoreContext()
   const formatDate = format(transaction.date, 'short')
     // const { deleteTransaction } = useGlobalState()
   return (
@@ -22,7 +26,17 @@ function TransactionItem({ transaction }: {
         }
       </TableCell>
       <TableCell>{formatDate}</TableCell>
-      <TableCell>Acciones</TableCell>
+      <TableCell className='flex gap-2'>
+        <TransactionUpdateForm
+          id={transaction.id}
+          date={transaction.date}
+          amount={transaction.amount.toString()}
+          category={transaction.category}
+          type={transaction.amount > 0 ? 'Ingreso' : 'Gasto'}
+          title={transaction.description}
+        />
+        <Button onClick={() => deleteTransaction(transaction.id)} variant="secondary">Borrar</Button>
+      </TableCell>
     </TableRow>
   )
 }

@@ -74,7 +74,7 @@ function TransactionForm() {
                 </TabsContent>
               </Tabs>
             </DrawerBody>
-            <DrawerFooter className="mt-6 relative bottom-0 right-4">
+            <DrawerFooter>
               <DrawerClose asChild>
                 <Button
                   className="mt-2 w-full sm:mt-0 sm:w-fit"

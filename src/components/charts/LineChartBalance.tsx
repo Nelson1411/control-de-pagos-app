@@ -24,7 +24,7 @@ function LineChartBalance() {
 
   return (
     <div>
-      <h1 className="text-xl text-gray-700 dark:text-gray-300">
+      <h1 className="text-xl dark:text-[#fffffe] font-title font-bold">
         Balance por día
       </h1>
 

@@ -1,11 +1,18 @@
 /** @type {import('tailwindcss').Config} */
+/** @type {import('@fontsource-variable/syne').Config} */
+// Supports weights 400-800
 export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'selector',
   theme: {
     extend: {
+      fontFamily: {
+        title: ['Syne Variable', 'sans-serif'],
+        paragraph: ['Inter Variable', 'sans-serif'],
+      },
       keyframes: {
         hide: {
           from: { opacity: "1" },

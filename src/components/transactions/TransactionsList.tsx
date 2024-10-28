@@ -4,7 +4,6 @@ import TransactionItem from "./TransactionItem"
 import {
     Table,
     TableBody,
-    TableCaption,
     TableHead,
     TableHeaderCell,
     TableRoot,
@@ -15,23 +14,24 @@ function TransactionsList() {
     const { transactions  } = useStoreContext()
   return (
     <>
-        <TableRoot className="h-full">
+        <TableRoot>
             <Table>
-                <TableCaption>ultimas transacciones</TableCaption>
                 <TableHead>
                     <TableRow>
                         <TableHeaderCell>Titulo</TableHeaderCell>
                         <TableHeaderCell>Monto ($)</TableHeaderCell>
-                        <TableHeaderCell>Categoria</TableHeaderCell>
+                        <TableHeaderCell>Categoría</TableHeaderCell>
                         <TableHeaderCell>Tipo</TableHeaderCell>
                         <TableHeaderCell>Fecha</TableHeaderCell>
                         <TableHeaderCell>Acciones</TableHeaderCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {transactions.map((item: Transaction) => (
-                        <TransactionItem transaction={item} key={item.id} />
-                    ))}
+                    {
+                        transactions.map((item: Transaction) => (
+                            <TransactionItem transaction={item} key={item.id} />
+                        ))
+                    }
                 </TableBody>
             </Table>
         </TableRoot>

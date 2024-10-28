@@ -31,8 +31,8 @@ function BarChart() {
 
   return (
     <>
-        <h1 className="text-xl text-gray-700 dark:text-gray-300">
-            Grafíca de gastos
+        <h1 className="text-xl dark:text-[#fffffe] font-title font-bold">
+            Grafíco de barras
         </h1>
         <BarChartTremor
             data={data}
@@ -41,7 +41,6 @@ function BarChart() {
             valueFormatter={(number: number) =>
             `$${Intl.NumberFormat("us").format(number).toString()}`
             }
-            onValueChange={(v) => console.log(v)}
             xAxisLabel="Fechas"
             yAxisLabel="Monto"
         />

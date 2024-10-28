@@ -1,5 +1,3 @@
-import React from "react"
-
 export type id = `${string}-${string}-${string}-${string}-${string}`
 export interface Transaction {
     description: string,
@@ -45,12 +43,14 @@ export interface StateType {
 export interface Actions {
     addTransaction: (transaction: Transaction) => void
     deleteTransaction: (id: id) => void
+    updateTransaction: (id: id, newTransaction: Transaction) => void
 }
 
 export interface StoreContextType {
     transactions: Transaction[],
     onSubmit: () => void
     deleteTransaction: (id: id) => void
+    onClickUpdate: (id: id, date: Date) => void | string
     balance: string
     expense: string
     income: string
@@ -63,8 +63,8 @@ export interface FormContextType {
     amount: string,
     formTypeChange: (formType: 'Gasto' | 'Ingreso') => void
     categoryChange: (category: CategoryExpenseTypes | CategoryIncomeTypes) => void
-    titleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-    amountChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    titleChange: (e: string) => void | string
+    amountChange: (e: string) => void | string
     clearForm: () => void
 }
 

@@ -7,6 +7,7 @@ import { RiCloseLine } from "@remixicon/react"
 import { cx, focusRing } from "../../lib/utils"
 
 import { Button } from "./Button"
+import { useFormContext } from "../../hooks/formHook"
 
 const Drawer = (
   props: React.ComponentPropsWithoutRef<typeof DrawerPrimitives.Root>,
@@ -100,6 +101,7 @@ const DrawerHeader = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
+  const { clearForm } = useFormContext()
   return (
     <div
       ref={ref}
@@ -113,6 +115,7 @@ const DrawerHeader = React.forwardRef<
         <Button
           variant="ghost"
           className="aspect-square p-1 hover:bg-gray-100 hover:dark:bg-gray-400/10"
+          onClick={() => clearForm()}
         >
           <RiCloseLine className="size-6" aria-hidden="true" />
         </Button>

@@ -22,10 +22,10 @@ function ExpenseChart() {
 
   return (
     <>
-      <p className="text-center text-sm text-gray-700 dark:text-gray-300">
+      <h1 className="text-center text-sm dark:text-[#fffffe] font-title font-bold">
         Balance
-      </p>
-      <p className="mt-2 w-full text-center text-xl font-semibold text-gray-900 dark:text-gray-50">
+      </h1>
+      <p className="mt-2 w-full text-center text-xl font-semibold font-paragraph dark:text-[#fffffe]">
         {total}
       </p>
       <DonutChart

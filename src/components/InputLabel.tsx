@@ -20,7 +20,7 @@ export const InputLabel = ({ label, className }:{
         name="titulo"
         type="text"
         value={title}
-        onChange={(e) => titleChange(e)}
+        onChange={(e) => titleChange(e.target.value)}
       />
     </div>
   )

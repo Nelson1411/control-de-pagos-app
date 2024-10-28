@@ -130,7 +130,7 @@ const LegendItem = ({
           // base
           "truncate whitespace-nowrap text-xs",
           // text color
-          "text-gray-700 dark:text-gray-300",
+          "text-gray-700 dark:text-[#fffffe] font-paragraph",
           hasOnValueChange &&
             "group-hover:text-gray-900 dark:group-hover:text-gray-50",
           activeLegend && activeLegend !== name ? "opacity-40" : "opacity-100",
@@ -455,7 +455,7 @@ const ChartTooltip = ({
           // border color
           "border-gray-200 dark:border-gray-800",
           // background color
-          "bg-white dark:bg-gray-950",
+          "bg-white dark:bg-[#16161a]",
         )}
       >
         <div className={cx("border-b border-inherit px-4 py-2")}>
@@ -464,7 +464,7 @@ const ChartTooltip = ({
               // base
               "font-medium",
               // text color
-              "text-gray-900 dark:text-gray-50",
+              "text-gray-900 dark:text-[#fffffe] font-paragraph",
             )}
           >
             {label}
@@ -489,7 +489,7 @@ const ChartTooltip = ({
                     // base
                     "whitespace-nowrap text-right",
                     // text color
-                    "text-gray-700 dark:text-gray-300",
+                    "text-gray-700 dark:text-[#fffffe] font-paragraph",
                   )}
                 >
                   {category}
@@ -723,7 +723,8 @@ const BarChartTremor = React.forwardRef<HTMLDivElement, BarChartProps>(
                 <Label
                   position="insideBottom"
                   offset={-20}
-                  className="fill-gray-800 text-sm font-medium dark:fill-gray-200"
+                  className="fill-gray-800 dark:fill-[#fffffe] 
+                  text-sm font-medium font-paragraph"
                 >
                   {xAxisLabel}
                 </Label>
@@ -740,7 +741,7 @@ const BarChartTremor = React.forwardRef<HTMLDivElement, BarChartProps>(
                 // base
                 "text-xs",
                 // text fill
-                "fill-gray-500 dark:fill-gray-500",
+                "fill-gray-500 dark:fill-[#fffffe] font-paragraph",
               )}
               tick={{
                 transform:

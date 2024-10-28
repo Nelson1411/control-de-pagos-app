@@ -7,9 +7,11 @@
 import { FormProvider } from "./context/FormContext"
 import { StoreProvider } from "./context/StoreContext"
 import { Route, Switch } from "wouter"
-import Graficas from "./views/Graficas"
 import Layout from "./layout/Layout"
+
+import Graficas from "./views/Graficas"
 import Tabla from "./views/Tabla"
+import Principal from "./views/Principal"
 
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
         <StoreProvider>
           <Layout>
             <Switch>
+              <Route path={'/'} component={Principal} />
               <Route path={'/graficas'} component={Graficas} />
               <Route path={'/transacciones'} component={Tabla} />
               <Route>404</Route>

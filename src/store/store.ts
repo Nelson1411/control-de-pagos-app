@@ -13,6 +13,14 @@ export const useStore = create<StateType & Actions>()(
             addTransaction: (transaction: Transaction) => set({
                 transactions: [...get().transactions, transaction]
             }),
+            updateTransaction: (id: id, newTransaction: Transaction) => set({
+                transactions: get().transactions.map((transaction: Transaction) => {
+                    if (transaction.id === id) {
+                        return newTransaction
+                    }
+                    return transaction
+                })
+            }),
             deleteTransaction: (id: id) => set({
                 transactions: get().transactions.filter((transaction: Transaction) => {
                     return transaction.id !== id

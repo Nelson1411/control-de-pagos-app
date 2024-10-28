@@ -37,7 +37,25 @@ export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
 
     const deleteTransaction = (id: id) => {
         useStore.getState().deleteTransaction(id)
-
+    }
+    
+    const onClickUpdate = (id: id, date: Date) => {
+        const newTransaction = {
+            id,
+            description: title,
+            amount: formType === 'Gasto' ? Number(-amount) : +amount,
+            category: category,
+            date: date,
+        }
+        try {
+            useStore.getState().updateTransaction(id, newTransaction)
+        } catch (error) {
+            console.error(error);
+            toast.error('Error al actualizar la transacción')
+            return
+        }
+        toast.success('Transacción actualizada')
+        clearForm()
     }
 
     const onSubmit = () => {
@@ -69,7 +87,7 @@ export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
             income,
             onSubmit,
             deleteTransaction,
-
+            onClickUpdate
         }}>
             {children}
         </StoreContext.Provider>

@@ -12,7 +12,7 @@ export const InputNumber = ({ label, className }: {
       <Label htmlFor="amount">{ label }</Label>
       <Input
         value={amount}
-        onChange={(e) => amountChange(e)}
+        onChange={(e) => amountChange(e.target.value)}
         placeholder="00.00"
         id="amount"
         name="amount"

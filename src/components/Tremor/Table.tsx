@@ -15,7 +15,7 @@ const TableRoot = React.forwardRef<
   >
     <div
       // make table scrollable on mobile
-      className={cx("w-full overflow-auto whitespace-nowrap", className)}
+      className={cx("max-w-full overflow-auto whitespace-nowrap relative", className)}
       {...props}
     >
       {children}
@@ -62,9 +62,9 @@ const TableHeaderCell = React.forwardRef<
     ref={forwardedRef}
     className={cx(
       // base
-      "border-b px-4 py-3.5 text-left text-sm font-semibold",
+      "border-b px-4 py-3.5 text-left text-sm font-semibold tracking-wide",
       // text color
-      "text-gray-900 dark:text-gray-50",
+      "text-gray-900 dark:text-[#fffffe] font-title text-lg",
       // border color
       "border-gray-200 dark:border-gray-800",
       className,
@@ -121,7 +121,7 @@ const TableCell = React.forwardRef<
       // base
       "p-4 text-sm",
       // text color
-      "text-gray-600 dark:text-gray-400",
+      "text-gray-600 dark:text-[#94a1b2] font-paragraph tracking-wide",
       className,
     )}
     {...props}

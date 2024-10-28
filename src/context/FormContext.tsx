@@ -15,12 +15,12 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
     const [title, setTitle] = useState("")
     const [amount, setAmount] = useState("")
 
-    const titleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.target.value)
+    const titleChange = (e: string) => {
+        setTitle(e)
     }
 
-    const amountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setAmount(e.target.value)
+    const amountChange = (e: string) => {
+        setAmount(e)
     }
 
     const categoryChange = (category: CategoryExpenseTypes | CategoryIncomeTypes) => {
@@ -34,6 +34,8 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
     const clearForm = () => {
         setTitle("")
         setAmount("")
+        setCategory(CategoryExpense.SALUD)
+        setFormType('Gasto')
     }
 
     useEffect(() => {
