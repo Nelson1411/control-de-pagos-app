@@ -120,7 +120,15 @@ function Layout({ children }: { children: React.ReactNode }) {
         <footer className='pt-24 pb-4'>
           <div className='flex justify-center items-center'>
             <h3 className='font-paragraph text-lg'>
-              Proyecto creado por <a href="https://github.com/NelsonDev1411">@NelsonDev1411</a>
+              Proyecto creado por
+              <a
+                href="https://github.com/NelsonDev1411"
+                className='text-[#7f5af0] pl-1'
+                target='_blank'
+                rel='noreferrer'
+              >
+                 @NelsonDev1411
+              </a>
             </h3>
           </div>
         </footer>
