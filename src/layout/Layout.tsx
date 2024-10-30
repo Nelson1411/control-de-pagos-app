@@ -116,6 +116,14 @@ function Layout({ children }: { children: React.ReactNode }) {
         <section className='md:pl-60'>
             {children}
         </section>
+
+        <footer className='pt-24 pb-4'>
+          <div className='flex justify-center items-center'>
+            <h3 className='font-paragraph text-lg'>
+              Proyecto creado por <a href="https://github.com/NelsonDev1411">@NelsonDev1411</a>
+            </h3>
+          </div>
+        </footer>
     </main>
   )
 }
