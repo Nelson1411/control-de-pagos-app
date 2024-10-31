@@ -8,7 +8,7 @@ import { useStoreContext } from "../hooks/StoreHook";
 function Graficas() {
     const { transactions } = useStoreContext()
   return (
-    <section className="h-full w-full text-white py-12 px-12 md:py-0 md:px-0 md:pr-9 md:pt-10">
+    <section className="h-full w-full text-white py-12 px-12 lg:py-0 lg:pb-12 lg:px-0 lg:pr-9 lg:pt-10">
         {
             transactions.length > 0 
             ? <div className="grid grid-cols-1 xl:grid-rows-[200px_1fr] lg:grid-cols-2 gap-12 h-full">

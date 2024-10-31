@@ -34,8 +34,7 @@ function TransactionUpdateForm({ id, date, amount, category, type, title }:
   const handleClick = () => {
     onClickUpdate(id, date)
   }
-  console.log(amount, category)
-
+  
   return (
     <section className="h-full">
       <Drawer>
