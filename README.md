@@ -4,7 +4,7 @@ Este proyecto es una página web diseñada y creado para registrar transacciones
 
 ## Tech Stack
 
-![ReactJS](https://img.shields.io/badge/ReactJS)
+![React](https://img.shields.io/badge/React)
 
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
